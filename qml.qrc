@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>starter.qml</file>
+        <file>UnborderedButton.qml</file>
+        <file>NavigationBar.qml</file>
+        <file>HeadBar.qml</file>
+        <file>CircleButton.qml</file>
+        <file>HomeView.qml</file>
+        <file>AboutForum.qml</file>
+    </qresource>
+</RCC>
