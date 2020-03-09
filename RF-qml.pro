@@ -31,6 +31,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    LICENSE \
     arts/fonts/Rubik-Regular.ttf \
     arts/fonts/RubikMonoOne-Regular.ttf \
     arts/fonts/RubikOne-Regular.ttf \

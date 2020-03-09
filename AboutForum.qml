@@ -17,15 +17,24 @@ Rectangle {
         height: rect.height
         ScrollBar.horizontal.policy: Qt.ScrollBarAlwaysOff
 
-        AnimatedImage {
-            id: animation
-            width: scrollView.availableWidth
-            enabled: false
-            source: "arts/images/aboutgif.gif"
-            fillMode: Image.PreserveAspectFit
-            onWidthChanged: console.log(scrollView.width)
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+        ColumnLayout {
+            id: lt
+            width: scrollView.width
+            height: scrollView.height
+
+            AnimatedImage {
+                id: animation
+                width: scrollView.availableWidth
+                enabled: false
+                source: "arts/images/aboutgif.gif"
+                fillMode: Image.PreserveAspectFit
+                Layout.fillWidth: true
+            }
+
+            Text {
+                id: name
+                text: qsTr("text")
+            }
         }
     }
 }
