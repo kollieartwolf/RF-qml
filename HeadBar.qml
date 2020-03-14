@@ -16,7 +16,7 @@ ToolBar {
     RowLayout {
         anchors.fill: parent
 
-        UnborderedButton {
+        RFUnborderedButton {
             id: backBtn
             visible: stack.depth > 1
             icon.source: "arts/icons/back.svg"

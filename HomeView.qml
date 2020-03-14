@@ -9,33 +9,33 @@ Image {
         anchors.fill: parent
         columns: parent.width > parent.height ? 3 : 2
 
-        CircleButton {
+        RFCircleButton {
             icon.source: "arts/icons/about.svg"
             text: qsTr("О ФОРУМЕ")
             onClicked: stack.push(aboutForum)
         }
 
-        CircleButton {
+        RFCircleButton {
             icon.source: "arts/icons/megaphone.svg"
             text: qsTr("РАДИО СОК")
         }
 
-        CircleButton {
+        RFCircleButton {
             icon.source: "arts/icons/speakers.svg"
             text: qsTr("СПИКЕРЫ")
         }
 
-        CircleButton {
+        RFCircleButton {
             icon.source: "arts/icons/program.svg"
             text: qsTr("ПРОГРАММА")
         }
 
-        CircleButton {
+        RFCircleButton {
             icon.source: "arts/icons/rules.svg"
             text: qsTr("ПРАВИЛА")
         }
 
-        CircleButton {
+        RFCircleButton {
             icon.source: "arts/icons/map.svg"
             text: qsTr("КАРТА")
         }

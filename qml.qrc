@@ -1,11 +1,13 @@
 <RCC>
     <qresource prefix="/">
         <file>starter.qml</file>
-        <file>UnborderedButton.qml</file>
+        <file>RFUnborderedButton.qml</file>
         <file>NavigationBar.qml</file>
         <file>HeadBar.qml</file>
-        <file>CircleButton.qml</file>
+        <file>RFCircleButton.qml</file>
         <file>HomeView.qml</file>
         <file>AboutForum.qml</file>
+        <file>SignIn.qml</file>
+        <file>RFInputField.qml</file>
     </qresource>
 </RCC>

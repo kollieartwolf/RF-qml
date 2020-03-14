@@ -35,6 +35,12 @@ Rectangle {
                 id: name
                 text: qsTr("text")
             }
+
+            Item {
+                // spacer item
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+            }
         }
     }
 }

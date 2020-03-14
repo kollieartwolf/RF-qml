@@ -1,3 +1,4 @@
+#include "kernel.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtSvg>
@@ -6,6 +7,7 @@ int main(int argc, char *argv[]) {
   QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
   QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
   QGuiApplication app(argc, argv);
+  qmlRegisterType<Kernel>("edu.russia.forum.kernel", 1, 0, "Kernel");
   QQmlApplicationEngine engine;
   const QUrl url(QStringLiteral("qrc:/starter.qml"));
   QObject::connect(

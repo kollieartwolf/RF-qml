@@ -3,6 +3,7 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.impl 2.3
+import edu.russia.forum.kernel 1.0
 
 ApplicationWindow {
     id: applicationWindow
@@ -15,6 +16,10 @@ ApplicationWindow {
 
     footer: NavigationBar {}
 
+    Kernel {
+        id: kernel
+    }
+
     StackView {
         id: stack
         initialItem: homeView
@@ -23,13 +28,16 @@ ApplicationWindow {
 
     Component {
         id: homeView
-
         HomeView {}
     }
 
     Component {
         id: aboutForum
-
         AboutForum {}
+    }
+
+    Component {
+        id: signIn
+        SignIn {}
     }
 }

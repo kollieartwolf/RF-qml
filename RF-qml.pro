@@ -14,6 +14,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    kernel.cpp \
     main.cpp
 
 RESOURCES += qml.qrc \
@@ -107,3 +108,6 @@ DISTFILES += \
     arts/images/TC2.png \
     arts/images/aboutgif.gif \
     arts/images/signin.jpg
+
+HEADERS += \
+    kernel.h

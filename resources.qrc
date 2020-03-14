@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>arts/images/signin.jpg</file>
         <file>arts/images/TC.png</file>
-        <file>arts/images/TC1.png</file>
         <file>arts/images/TC2.png</file>
         <file>arts/icons/about.svg</file>
         <file>arts/icons/ask-write.svg</file>
@@ -23,5 +22,6 @@
         <file>arts/fonts/RubikMonoOne-Regular.ttf</file>
         <file>arts/fonts/RubikOne-Regular.ttf</file>
         <file>arts/images/aboutgif.gif</file>
+        <file>arts/images/ts.png</file>
     </qresource>
 </RCC>

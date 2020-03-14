@@ -13,25 +13,29 @@ ToolBar {
         anchors.fill: parent
         spacing: 0
 
-        UnborderedButton {
+        RFUnborderedButton {
             id: homeBtn
             icon.source: "arts/icons/home.svg"
             icon.width: width - 2
+
+            onClicked: stack.pop(null)
         }
-        UnborderedButton {
+        RFUnborderedButton {
             id: shareBtn
             icon.source: "arts/icons/share.svg"
             icon.height: height - 2
         }
-        UnborderedButton {
+        RFUnborderedButton {
             id: newsBtn
             icon.source: "arts/icons/news.svg"
             icon.width: width - 2
         }
-        UnborderedButton {
+        RFUnborderedButton {
             id: peopleBtn
             icon.source: "arts/icons/people.svg"
             icon.height: height - 2
+
+            onClicked: kernel.signedIn ? stack.push(profile) : stack.push(signIn)
         }
     }
 }
