@@ -10,5 +10,6 @@
         <file>SignIn.qml</file>
         <file>RFInputField.qml</file>
         <file>RFPushButton.qml</file>
+        <file>Socials.qml</file>
     </qresource>
 </RCC>

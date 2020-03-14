@@ -40,4 +40,9 @@ ApplicationWindow {
         id: signIn
         SignIn {}
     }
+
+    Component {
+        id: socials
+        Socials {}
+    }
 }

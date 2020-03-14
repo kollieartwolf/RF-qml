@@ -13,8 +13,10 @@ Rectangle {
 
     ScrollView {
         id: scrollView
-        width: rect.width
-        height: rect.height
+        width: parent.width
+        height: parent.height
+        contentWidth: -1
+
         ScrollBar.horizontal.policy: Qt.ScrollBarAlwaysOff
 
         ColumnLayout {

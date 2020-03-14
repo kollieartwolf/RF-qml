@@ -24,6 +24,8 @@ ToolBar {
             id: shareBtn
             icon.source: "arts/icons/share.svg"
             icon.height: height - 2
+
+            onClicked: stack.pop(socials)
         }
         RFUnborderedButton {
             id: newsBtn

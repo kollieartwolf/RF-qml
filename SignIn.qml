@@ -7,11 +7,16 @@ Rectangle {
 
     FontLoader { id: fontR; source: "arts/fonts/Rubik-Regular.ttf" }
 
+    gradient: Gradient {
+        GradientStop { position: 0.0; color: "#f07300" }
+        GradientStop { position: 1.0; color: "#ffa400" }
+    }
+
     ScrollView {
         id: scrollView
         width: parent.width
         height: parent.height
-        anchors.fill: parent
+        contentWidth: -1
 
         ScrollBar.horizontal.policy: Qt.ScrollBarAlwaysOff
 
@@ -58,16 +63,4 @@ Rectangle {
             }
         }
     }
-
-    gradient: Gradient {
-        GradientStop { position: 0.0; color: "#f07300" }
-        GradientStop { position: 1.0; color: "#ffa400" }
-    }
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:8;anchors_height:20;anchors_width:80;anchors_x:"-10";anchors_y:55}
-D{i:7;anchors_height:200;anchors_width:200;anchors_x:8;anchors_y:8}D{i:2;anchors_width:640}
-}
-##^##*/
