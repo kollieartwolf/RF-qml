@@ -25,6 +25,11 @@ Rectangle {
             Layout.fillWidth: parent
         }
 
+        Item {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
+
         RFInputField {
             id: loginField
             placeholderText: qsTr("Логин")
@@ -39,19 +44,24 @@ Rectangle {
         }
 
         Item {
-            // spacer item
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
 
+        RFPushButton {
+            id: rFPushButton
+        }
 
-
+        Item {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:8;anchors_height:20;anchors_width:80;anchors_x:"-10";anchors_y:55}
-D{i:7;anchors_height:200;anchors_width:200;anchors_x:8;anchors_y:8}
+    D{i:0;autoSize:true;height:480;width:640}D{i:7;anchors_height:200;anchors_width:200;anchors_x:8;anchors_y:8}
+D{i:8;anchors_height:20;anchors_width:80;anchors_x:"-10";anchors_y:55}
 }
 ##^##*/

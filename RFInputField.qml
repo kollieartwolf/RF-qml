@@ -8,12 +8,14 @@ Rectangle {
     property string placeholderText: ""
     property bool password: false
 
+    FontLoader { id: fontR; source: "arts/fonts/Rubik-Regular.ttf" }
+
     width: 250
     height: 50
     color: "#ffffff"
-    radius: 5
-    Layout.rightMargin: 10
-    Layout.leftMargin: 10
+    radius: 6
+    Layout.rightMargin: parent.width / 12
+    Layout.leftMargin: parent.width / 12
     Layout.preferredHeight: 50
     Layout.fillHeight: false
     Layout.fillWidth: true
@@ -27,6 +29,7 @@ Rectangle {
         }
         
         text: ""
+        font.family: fontR.name
         color: "#ff8a00"
         echoMode: password ? TextInput.Password : TextInput.Normal
         placeholderText: rectangle.placeholderText
@@ -37,7 +40,7 @@ Rectangle {
         leftPadding: rectangle.radius
         anchors.rightMargin: 0
         anchors.leftMargin: 0
-        font.pointSize: 20
+        font.pointSize: 18
         font.capitalization: Font.MixedCase
         verticalAlignment: Text.AlignVCenter
         selectByMouse: true

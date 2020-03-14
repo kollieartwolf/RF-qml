@@ -9,5 +9,6 @@
         <file>AboutForum.qml</file>
         <file>SignIn.qml</file>
         <file>RFInputField.qml</file>
+        <file>RFPushButton.qml</file>
     </qresource>
 </RCC>
