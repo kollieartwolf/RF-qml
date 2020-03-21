@@ -23,5 +23,6 @@
         <file>arts/fonts/RubikOne-Regular.ttf</file>
         <file>arts/images/aboutgif.gif</file>
         <file>arts/images/ts.png</file>
+        <file>arts/icons/circle.svg</file>
     </qresource>
 </RCC>

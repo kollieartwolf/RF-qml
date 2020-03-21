@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.3
 ToolBar {
     id: toolBar
     contentHeight: smallHeaderLabel.height > parent.height / 12 ? smallHeaderLabel.height : parent.height / 12
-    onHeightChanged: console.log(stack.currentItem.id)
 
     background: Rectangle {
         color: stack.depth <= 1 ? "#ffa400" : "#f07300"
@@ -27,7 +26,7 @@ ToolBar {
 
         Label {
             id: headerLabel
-            text: qsTr("#ТСНАВСЕГДА")
+            text: headerText
             font.family: fontRMO.name
             font.pixelSize: 20
             leftPadding: backBtn.visible ? 0 : parent.width / 25

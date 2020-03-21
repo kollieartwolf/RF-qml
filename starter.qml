@@ -13,6 +13,7 @@ ApplicationWindow {
     title: qsTr("ВСмысле")
 
     header: HeadBar {}
+    property string headerText: "#ТСНАВСЕГДА"
 
     footer: NavigationBar {}
 
@@ -39,6 +40,11 @@ ApplicationWindow {
     Component {
         id: signIn
         SignIn {}
+    }
+
+    Component {
+        id: profile
+        Profile {}
     }
 
     Component {

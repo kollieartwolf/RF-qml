@@ -23,7 +23,6 @@ ToolButton {
             Item {
                 width: image.sourceSize.width
                 height: image.sourceSize.height
-                anchors.verticalCenter: button.verticalCenter
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
                 Image {
@@ -46,7 +45,6 @@ ToolButton {
                 text: button.text
                 font: button.font
                 color: button.down ? "#cfcfcf" : "#ffffff"
-                anchors.verticalCenter: button.verticalCenter
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             }
     }

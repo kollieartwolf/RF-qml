@@ -5,6 +5,9 @@ import QtQuick.Layouts 1.12
 Image {
     source: "arts/images/TC2.png"
 
+    onHeightChanged: if (height > 0) headerText = "#ТСНАВСЕГДА"
+    onVisibleChanged: if (visible) headerText = "#ТСНАВСЕГДА"
+
     GridLayout {
         anchors.fill: parent
         columns: parent.width > parent.height ? 3 : 2

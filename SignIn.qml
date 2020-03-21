@@ -5,6 +5,8 @@ import QtQuick.Controls 2.14
 Rectangle {
     id: rect
 
+    onHeightChanged: if (height > 0) headerText = "#ПРОФИЛЬ"
+
     FontLoader { id: fontR; source: "arts/fonts/Rubik-Regular.ttf" }
 
     gradient: Gradient {
@@ -41,6 +43,8 @@ Rectangle {
                 id: loginField
                 placeholderText: qsTr("Логин")
                 x: 74
+
+                onRTextChanged: kernel.login = rText
             }
 
             RFInputField {
@@ -48,6 +52,8 @@ Rectangle {
                 placeholderText: qsTr("Пароль")
                 password: true
                 x: 74
+
+                onRTextChanged: kernel.pass = rText
             }
 
             Item {
@@ -55,7 +61,12 @@ Rectangle {
             }
 
             RFPushButton {
-                id: rFPushButton
+                id: signInButton
+
+                onClicked: function() {
+                    kernel.signedIn = true;
+                    stack.push(profile);
+                }
             }
 
             Item {

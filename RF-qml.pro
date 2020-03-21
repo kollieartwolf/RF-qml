@@ -1,4 +1,4 @@
-QT += qml quick svg xml
+QT += qml quick svg xml sql
 
 CONFIG += c++11 resources_big
 
@@ -36,58 +36,6 @@ DISTFILES += \
     arts/fonts/Rubik-Regular.ttf \
     arts/fonts/RubikMonoOne-Regular.ttf \
     arts/fonts/RubikOne-Regular.ttf \
-    arts/icons/128/about.png \
-    arts/icons/128/ask-write.png \
-    arts/icons/128/back.png \
-    arts/icons/128/home.png \
-    arts/icons/128/map.png \
-    arts/icons/128/megaphone.png \
-    arts/icons/128/messages.png \
-    arts/icons/128/news.png \
-    arts/icons/128/people.png \
-    arts/icons/128/program.png \
-    arts/icons/128/rules.png \
-    arts/icons/128/share.png \
-    arts/icons/128/speakers.png \
-    arts/icons/256/about.png \
-    arts/icons/256/ask-write.png \
-    arts/icons/256/back.png \
-    arts/icons/256/home.png \
-    arts/icons/256/map.png \
-    arts/icons/256/megaphone.png \
-    arts/icons/256/messages.png \
-    arts/icons/256/news.png \
-    arts/icons/256/people.png \
-    arts/icons/256/program.png \
-    arts/icons/256/rules.png \
-    arts/icons/256/share.png \
-    arts/icons/256/speakers.png \
-    arts/icons/32/about.png \
-    arts/icons/32/ask-write.png \
-    arts/icons/32/back.png \
-    arts/icons/32/home.png \
-    arts/icons/32/map.png \
-    arts/icons/32/megaphone.png \
-    arts/icons/32/messages.png \
-    arts/icons/32/news.png \
-    arts/icons/32/people.png \
-    arts/icons/32/program.png \
-    arts/icons/32/rules.png \
-    arts/icons/32/share.png \
-    arts/icons/32/speakers.png \
-    arts/icons/64/about.png \
-    arts/icons/64/ask-write.png \
-    arts/icons/64/back.png \
-    arts/icons/64/home.png \
-    arts/icons/64/map.png \
-    arts/icons/64/megaphone.png \
-    arts/icons/64/messages.png \
-    arts/icons/64/news.png \
-    arts/icons/64/people.png \
-    arts/icons/64/program.png \
-    arts/icons/64/rules.png \
-    arts/icons/64/share.png \
-    arts/icons/64/speakers.png \
     arts/icons/about.svg \
     arts/icons/ask-write.svg \
     arts/icons/back.svg \

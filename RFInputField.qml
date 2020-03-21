@@ -7,6 +7,7 @@ Rectangle {
 
     property string placeholderText: ""
     property bool password: false
+    property string rText: ""
 
     FontLoader { id: fontR; source: "arts/fonts/Rubik-Regular.ttf" }
 
@@ -28,7 +29,10 @@ Rectangle {
             radius: rectangle.radius
         }
         
-        text: ""
+        text: rText
+
+        onTextChanged: rText = text
+
         font.family: fontR.name
         color: "#ff8a00"
         echoMode: password ? TextInput.Password : TextInput.Normal
