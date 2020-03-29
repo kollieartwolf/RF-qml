@@ -24,5 +24,6 @@
         <file>arts/images/aboutgif.gif</file>
         <file>arts/images/ts.png</file>
         <file>arts/icons/circle.svg</file>
+        <file>arts/images/map.png</file>
     </qresource>
 </RCC>

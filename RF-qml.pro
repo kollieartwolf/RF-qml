@@ -1,4 +1,4 @@
-QT += qml quick svg xml sql
+QT += qml quick svg xml
 
 CONFIG += c++11 resources_big
 
@@ -14,6 +14,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    fetcher.cpp \
     kernel.cpp \
     main.cpp
 
@@ -58,4 +59,5 @@ DISTFILES += \
     arts/images/signin.jpg
 
 HEADERS += \
+    fetcher.h \
     kernel.h

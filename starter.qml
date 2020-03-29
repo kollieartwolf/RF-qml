@@ -7,9 +7,9 @@ import edu.russia.forum.kernel 1.0
 
 ApplicationWindow {
     id: applicationWindow
-    visible: true
-    width: 450
-    height: 850
+    visible: false
+    width: 320
+    height: 600
     title: qsTr("ВСмысле")
 
     header: HeadBar {}
@@ -19,6 +19,7 @@ ApplicationWindow {
 
     Kernel {
         id: kernel
+        onInitLoadedChanged: applicationWindow.visible = true
     }
 
     StackView {

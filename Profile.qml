@@ -66,7 +66,6 @@ Rectangle {
                 text: kernel.name
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 font.pointSize: 16
-                transformOrigin: Item.Center
             }
 
             Text {

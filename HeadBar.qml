@@ -35,7 +35,9 @@ ToolBar {
 
         Label {
             id: smallHeaderLabel
-            text: qsTr("6 - 8\nавгуста")
+            text: qsTr("6 - 8<br>августа")
+            textFormat: Text.RichText
+            font.capitalization: Font.AllUppercase
             font.family: fontRMO.name
             font.pixelSize: 16
             horizontalAlignment: Qt.AlignHCenter

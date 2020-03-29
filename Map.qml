@@ -1,13 +1,13 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.12
-import QtGraphicalEffects 1.14
+import QtQuick.Controls 2.14
 
 Rectangle {
     id: rect
-    color: "#f07300"
 
-    onHeightChanged: if (height > 0) headerText = "#ОФОРУМЕ"
+    onHeightChanged: if (height > 0) headerText = "#КАРТА"
+
+    FontLoader { id: fontR; source: "arts/fonts/Rubik-Regular.ttf" }
 
     gradient: Gradient {
         GradientStop { position: 0.0; color: "#f07300" }
@@ -24,13 +24,15 @@ Rectangle {
         ScrollBar.horizontal.policy: Qt.ScrollBarAlwaysOff
 
         ColumnLayout {
-            id: lt
+            id: column
             width: rect.width
 
-            RFAnimation {
-                id: animation
-                source: "arts/images/aboutgif.gif"
-                Layout.fillWidth: true
+            Image {
+                id: image
+                source: "arts/images/map.png"
+                fillMode: Image.PreserveAspectFit
+                enabled: false
+                Layout.fillWidth: parent
                 Layout.margins: 20
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             }
@@ -38,13 +40,12 @@ Rectangle {
             Text {
                 id: name
                 color: "#ffffff"
-                text: kernel.getString("about_forum_text")
+                text: kernel.getString("map_text")
                 font.pointSize: 16
                 horizontalAlignment: Text.AlignHCenter
                 Layout.fillWidth: true
-                y: animation.y + animation.height + 20
+                y: image.y + image.height + 20
             }
-
         }
     }
 }

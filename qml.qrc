@@ -12,5 +12,8 @@
         <file>RFPushButton.qml</file>
         <file>Socials.qml</file>
         <file>Profile.qml</file>
+        <file>RFAnimation.qml</file>
+        <file>Map.qml</file>
+        <file>Radio.qml</file>
     </qresource>
 </RCC>

@@ -1,61 +1,67 @@
 #include "kernel.h"
 
 Kernel::Kernel(QObject *parent) : QObject(parent) {
-  db.setDatabaseName("test.db");
-  db.open();
+  // При запуске
+  m_settings = new QSettings("RM", "RF-qml", this);
+  m_fetcher = new Fetcher(this);
+  connect(m_fetcher, &Fetcher::finished, this, &Kernel::checkServer);
+  m_fetcher->fetch("http://markcda.pythonanywhere.com/reloadAll");
 }
 
-Kernel::~Kernel() { db.close(); }
-
 void Kernel::setSignedIn(const bool &signedIn) {
-  if (signedIn == m_signedIn)
-    return;
+  if (signedIn == m_signedIn) return;
   m_signedIn = signedIn;
-  if (m_signedIn == true)
-    connectValues();
 }
 
 void Kernel::setLogin(const QString &login) {
-  if (login == m_login)
-    return;
+  if (login == m_login) return;
   m_login = login;
 }
 
 void Kernel::setPass(const QString &pass) {
-  if (pass == m_pass)
-    return;
+  if (pass == m_pass) return;
   m_pass = pass;
 }
 
-void Kernel::setWhichSocial(const int &whichSocial) {
-  if (whichSocial == m_whichSocial)
-    return;
-  m_whichSocial = whichSocial;
+void Kernel::setInitLoaded(const bool &initLoaded) {
+  if (initLoaded == m_initLoaded) return;
+  m_initLoaded = initLoaded;
+  emit initLoadedChanged();
 }
 
-void Kernel::connectValues() {
-  auto *query = new QSqlQuery(db);
-  query->exec(QString("SELECT * FROM users WHERE login=\"%1\" AND pass=\"%2\"")
-                  .arg(m_login)
-                  .arg(m_pass));
-  qDebug() << query->lastError();
-  query->first();
-  if (query->isValid()) {
-    m_id = query->value(0).toInt();
-    m_name = query->value(3).toString();
-    m_type = query->value(4).toString();
-    m_age = query->value(5).toInt();
-    m_worksWith = query->value(6).toString();
-    m_city = query->value(7).toString();
-    m_uni = query->value(8).toString();
-    emit nameChanged();
-    emit typeChanged();
-    emit ageChanged();
-    emit worksWithChanged();
-    emit cityChanged();
-    emit uniChanged();
+void Kernel::setDates(const QString &dates) {
+  if (dates == m_dates) return;
+  m_dates = dates;
+}
+
+void Kernel::checkServer(QNetworkReply *pData) {
+  disconnect(m_fetcher, &Fetcher::finished, this, &Kernel::checkServer);
+  if ((m_settings->value("isNotFirstOpen").toInt() != 1) ||
+      (QDateTime::currentSecsSinceEpoch() <= pData->readAll().toInt())) {
+    // Первый запуск/перезагрузка данных с сервера: синхронизация.
+    connect(m_fetcher, &Fetcher::finished, this, &Kernel::setInitData);
+    m_fetcher->fetch("http://markcda.pythonanywhere.com/getInitValues");
+    m_settings->setValue("loggedIn", false);
   } else {
-    m_signedIn = false;
+    // Считывание данных профиля.
+    if (m_settings->value("loggedIn").toBool()) {
+    }
+    // Считывание основных строк.
+    m_keyValues = QJsonDocument::fromBinaryData(
+        m_settings->value("initValues").toByteArray());
   }
-  delete query;
+  // Запрос первых 10 новостей и 10 спикеров.
+}
+
+void Kernel::setInitData(QNetworkReply *pData) {
+  disconnect(m_fetcher, &Fetcher::finished, this, &Kernel::setInitData);
+  m_keyValues = QJsonDocument::fromJson(pData->readAll());
+  m_settings->setValue("isNotFirstOpen", 1);
+  m_settings->setValue("initValues", m_keyValues.toBinaryData());
+  setDates(m_keyValues.object().value("dates").toString());
+  setInitLoaded(true);
+}
+
+QString Kernel::getString(const QString &key) {
+  return m_keyValues.object().value(key).toString();
 }

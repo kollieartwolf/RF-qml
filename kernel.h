@@ -1,72 +1,49 @@
 #ifndef KERNEL_H
 #define KERNEL_H
 
-#include <QObject>
-#include <QSqlDatabase>
-#include <QSqlError>
-#include <QSqlQuery>
-#include <QSqlRecord>
-#include <QSqlResult>
 #include <QDebug>
+#include <QObject>
+#include <QSettings>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QDateTime>
+
+#include "fetcher.h"
 
 class Kernel : public QObject {
   Q_OBJECT
   Q_PROPERTY(bool signedIn READ signedIn WRITE setSignedIn)
-  Q_PROPERTY(int whichSocial READ whichSocial WRITE setWhichSocial)
-  Q_PROPERTY(int id READ id)
-  Q_PROPERTY(QString login READ login WRITE setLogin NOTIFY loginChanged)
-  Q_PROPERTY(QString pass READ pass WRITE setPass NOTIFY passChanged)
-  Q_PROPERTY(QString name READ name NOTIFY nameChanged)
-  Q_PROPERTY(QString type READ type NOTIFY typeChanged)
-  Q_PROPERTY(int age READ age NOTIFY ageChanged)
-  Q_PROPERTY(QString worksWith READ worksWith NOTIFY worksWithChanged)
-  Q_PROPERTY(QString city READ city NOTIFY cityChanged)
-  Q_PROPERTY(QString uni READ uni NOTIFY uniChanged)
-public:
+  Q_PROPERTY(QString dates READ dates WRITE setDates)
+  Q_PROPERTY(bool initLoaded READ initLoaded WRITE setInitLoaded NOTIFY initLoadedChanged)
+ public:
   explicit Kernel(QObject *parent = nullptr);
-  ~Kernel();
 
   bool signedIn() { return m_signedIn; }
-  int whichSocial() { return m_whichSocial; }
-  int id() { return m_id; }
-  QString login() { return m_login; }
-  QString pass() { return m_pass; }
-  QString name() { return m_name; }
-  QString type() { return m_type; }
-  int age() { return m_age; }
-  QString worksWith() { return m_worksWith; }
-  QString city() { return m_city; }
-  QString uni() { return m_uni; }
+  bool initLoaded() { return m_initLoaded; }
+  QString dates() { return m_dates; }
   void setSignedIn(const bool &signedIn);
   void setLogin(const QString &login);
   void setPass(const QString &pass);
-  void setWhichSocial(const int &whichSocial);
+  void setInitLoaded(const bool &initLoaded);
+  void setDates(const QString &dates);
+  void checkServer(QNetworkReply *pData);
+  void setInitData(QNetworkReply *pData);
+  Q_INVOKABLE QString getString(const QString &key);
 
-signals:
+ signals:
   void loginChanged();
   void passChanged();
-  void nameChanged();
-  void typeChanged();
-  void ageChanged();
-  void worksWithChanged();
-  void cityChanged();
-  void uniChanged();
+  void initLoadedChanged();
 
-private:
+ private:
   bool m_signedIn = false;
-  int m_whichSocial = 0;
-  int m_id = 0;
+  bool m_initLoaded = false;
+  QString m_dates = "";
   QString m_login = "";
   QString m_pass = "";
-  QString m_name = "";
-  QString m_type = "";
-  int m_age = 0;
-  QString m_worksWith = "";
-  QString m_city = "";
-  QString m_uni = "";
-  QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-
-  void connectValues();
+  Fetcher *m_fetcher;
+  QSettings *m_settings;
+  QJsonDocument m_keyValues;
 };
 
-#endif // KERNEL_H
+#endif  // KERNEL_H
