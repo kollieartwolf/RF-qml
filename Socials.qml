@@ -98,10 +98,9 @@ Rectangle {
     }
 
     WebView {
-        enabled: false
         id: webView
         x: 0
-        y: socialSelector.y + socialSelector.height
+        y: socialSelector.y + socialSelector.height + 1
         width: rect.width
         height: rect.height - socialSelector.height
         url: vkUrl
