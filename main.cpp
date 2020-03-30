@@ -2,8 +2,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtSvg>
+#include <QtWebView>
 
 int main(int argc, char *argv[]) {
+  QtWebView::initialize();
   QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
   QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
   QGuiApplication app(argc, argv);

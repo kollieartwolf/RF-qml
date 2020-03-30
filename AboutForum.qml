@@ -9,6 +9,8 @@ Rectangle {
 
     onHeightChanged: if (height > 0) headerText = "#ОФОРУМЕ"
 
+    FontLoader { id: fontR; source: "arts/fonts/Rubik-Regular.ttf" }
+
     gradient: Gradient {
         GradientStop { position: 0.0; color: "#f07300" }
         GradientStop { position: 1.0; color: "#ffa400" }
