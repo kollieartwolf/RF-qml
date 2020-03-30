@@ -21,6 +21,7 @@ Image {
         RFCircleButton {
             icon.source: "arts/icons/megaphone.svg"
             text: qsTr("RADIOHEART")
+            onClicked: stack.push(radio)
         }
 
         RFCircleButton {

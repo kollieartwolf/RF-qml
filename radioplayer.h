@@ -11,7 +11,6 @@ class RadioPlayer : public QObject {
   void setEnabled(const bool &enabled);
 
  private:
-  QString link = "http://s0.radioheart.ru:8000/RH23608";
   QMediaPlayer *player = nullptr;
 };
 

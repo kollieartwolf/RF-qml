@@ -66,4 +66,9 @@ ApplicationWindow {
         id: rules
         Rules {}
     }
+
+    Component {
+        id: radio
+        Radio {}
+    }
 }
