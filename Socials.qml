@@ -67,7 +67,7 @@ Rectangle {
                 MouseArea {
                     id: fbma
                     anchors.fill: parent
-                    onClicked: if (webView.url != fbUrl) { webView.url = fbUrl; whichSelected = 0; }
+                    onClicked: if (webView.url != fbUrl) { webView.url = fbUrl; whichSelected = 1; }
                 }
             }
 
@@ -90,7 +90,7 @@ Rectangle {
                 MouseArea {
                     id: ima
                     anchors.fill: parent
-                    onClicked: if (webView.url != instUrl) { webView.url = instUrl; whichSelected = 0; }
+                    onClicked: if (webView.url != instUrl) { webView.url = instUrl; whichSelected = 2; }
                 }
             }
 
@@ -101,15 +101,9 @@ Rectangle {
         enabled: false
         id: webView
         x: 0
-        y: socialSelector.y + socialSelector.height + 1
+        y: socialSelector.y + socialSelector.height
         width: rect.width
         height: rect.height - socialSelector.height
         url: vkUrl
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
-##^##*/
