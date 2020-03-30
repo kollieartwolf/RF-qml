@@ -20,6 +20,10 @@ ApplicationWindow {
     Kernel {
         id: kernel
         onInitLoadedChanged: applicationWindow.visible = true
+        onSignedInChanged: {
+            stack.pop(0);
+            stack.push(profile);
+        }
     }
 
     StackView {
@@ -51,5 +55,10 @@ ApplicationWindow {
     Component {
         id: socials
         Socials {}
+    }
+
+    Component {
+        id: map
+        Map {}
     }
 }

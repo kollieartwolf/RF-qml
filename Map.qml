@@ -40,12 +40,21 @@ Rectangle {
             Text {
                 id: name
                 color: "#ffffff"
-                text: kernel.getString("map_text")
+                text: kernel.getString("map")
+                wrapMode: Text.WordWrap
+                Layout.rightMargin: 20
+                Layout.leftMargin: 20
                 font.pointSize: 16
-                horizontalAlignment: Text.AlignHCenter
+                horizontalAlignment: Text.AlignLeft
                 Layout.fillWidth: true
                 y: image.y + image.height + 20
             }
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/

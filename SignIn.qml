@@ -6,6 +6,7 @@ Rectangle {
     id: rect
 
     onHeightChanged: if (height > 0) headerText = "#ПРОФИЛЬ"
+    // onDestroyed: kernel.signInError = false
 
     FontLoader { id: fontR; source: "arts/fonts/Rubik-Regular.ttf" }
 
@@ -43,7 +44,6 @@ Rectangle {
                 id: loginField
                 placeholderText: qsTr("Логин")
                 x: 74
-
                 onRTextChanged: kernel.login = rText
             }
 
@@ -52,26 +52,41 @@ Rectangle {
                 placeholderText: qsTr("Пароль")
                 password: true
                 x: 74
-
                 onRTextChanged: kernel.pass = rText
             }
 
-            Item {
+            Text {
+                property bool signInError: kernel.signInError
+
+                id: element
                 height: 40
+                color: "#ffffff"
+                fontSizeMode: Text.HorizontalFit
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                font.family: "Rubik"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+
+                onSignInErrorChanged: text = signInError ? "Ошибка входа." : ""
             }
 
             RFPushButton {
                 id: signInButton
-
-                onClicked: function() {
-                    kernel.signedIn = true;
-                    stack.push(profile);
-                }
+                onClicked: kernel.sign()
             }
 
             Item {
                 Layout.fillHeight: parent
             }
+
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/

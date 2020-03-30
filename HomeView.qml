@@ -41,6 +41,7 @@ Image {
         RFCircleButton {
             icon.source: "arts/icons/map.svg"
             text: qsTr("КАРТА")
+            onClicked: stack.push(map)
         }
     }
 }

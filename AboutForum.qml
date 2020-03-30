@@ -38,13 +38,22 @@ Rectangle {
             Text {
                 id: name
                 color: "#ffffff"
-                text: kernel.getString("about_forum_text")
+                text: kernel.getString("about")
+                wrapMode: Text.WordWrap
                 font.pointSize: 16
-                horizontalAlignment: Text.AlignHCenter
+                horizontalAlignment: Text.AlignLeft
                 Layout.fillWidth: true
+                Layout.leftMargin: 20
+                Layout.rightMargin: 20
                 y: animation.y + animation.height + 20
             }
 
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/

@@ -64,6 +64,7 @@ Rectangle {
                 id: nameElement
                 color: "#ffffff"
                 text: kernel.name
+                wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 font.pointSize: 16
             }
@@ -72,6 +73,7 @@ Rectangle {
                 id: typeElement
                 color: "#ffffff"
                 text: kernel.type
+                wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 font.weight: Font.Bold
                 font.pointSize: 16
@@ -81,6 +83,7 @@ Rectangle {
                 id: ageElement
                 color: "#ffffff"
                 text: "Возраст: " + kernel.age
+                wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 Layout.rightMargin: 20
                 Layout.leftMargin: 20
@@ -92,6 +95,7 @@ Rectangle {
                 id: worksWithElement
                 color: "#ffffff"
                 text: "Направление деятельности: " + kernel.worksWith
+                wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 Layout.fillWidth: true
                 Layout.rightMargin: 20
@@ -103,6 +107,7 @@ Rectangle {
                 id: cityElement
                 color: "#ffffff"
                 text: "Город: " + kernel.city
+                wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 Layout.rightMargin: 20
                 Layout.leftMargin: 20
@@ -114,6 +119,7 @@ Rectangle {
                 id: uniElement
                 color: "#ffffff"
                 text: "ВУЗ: " + kernel.uni
+                wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 Layout.fillWidth: true
                 Layout.rightMargin: 20
