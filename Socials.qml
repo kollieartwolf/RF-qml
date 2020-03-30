@@ -13,6 +13,8 @@ Rectangle {
     property string vkUrl : "https://m.vk.com/terrascientiaforum"
     property string instUrl : "https://www.instagram.com/terrascientiaforum"
 
+    property int whichSelected: 0
+
     Rectangle {
         id: socialSelector
         width: parent.width
@@ -25,13 +27,14 @@ Rectangle {
 
             Item {
                 id: element
-                width: parent.width / 3
-                height: parent.height
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.fillHeight: true
+                Layout.fillWidth: true
 
                 Text {
                     id: vkText
                     font.family: fontR.name
-                    color: "#ffffff"
+                    color: whichSelected == 0 ? "#800080" : "#ffffff"
                     text: "VKONTAKTE"
                     fontSizeMode: Text.HorizontalFit
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -41,20 +44,20 @@ Rectangle {
                 MouseArea {
                     id: vkma
                     anchors.fill: parent
-                    onClicked: webView.url == vkUrl ? "" : webView.url = vkUrl
+                    onClicked: if (webView.url != vkUrl) { webView.url = vkUrl; whichSelected = 0; }
                 }
             }
 
             Item {
                 id: element1
-                x: vkma.width
-                width: parent.width / 3
-                height: parent.height
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
                 Text {
                     id: fbText
                     font.family: fontR.name
-                    color: "#ffffff"
+                    color: whichSelected == 1 ? "#800080" : "#ffffff"
                     text: "FACEBOOK"
                     fontSizeMode: Text.HorizontalFit
                     anchors.verticalCenter: parent.verticalCenter
@@ -64,20 +67,20 @@ Rectangle {
                 MouseArea {
                     id: fbma
                     anchors.fill: parent
-                    onClicked: webView.url == fbUrl ? "" : webView.url = fbUrl
+                    onClicked: if (webView.url != fbUrl) { webView.url = fbUrl; whichSelected = 0; }
                 }
             }
 
             Item {
                 id: element2
-                x: vkma.width + fbma.width
-                width: parent.width / 3
-                height: parent.height
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.fillHeight: true
+                Layout.fillWidth: true
 
                 Text {
                     id: instText
                     font.family: fontR.name
-                    color: "#ffffff"
+                    color: whichSelected == 2 ? "#800080" : "#ffffff"
                     text: "INSTAGRAM"
                     fontSizeMode: Text.HorizontalFit
                     anchors.verticalCenter: parent.verticalCenter
@@ -87,7 +90,7 @@ Rectangle {
                 MouseArea {
                     id: ima
                     anchors.fill: parent
-                    onClicked: webView.url == instUrl ? "" : webView.url = instUrl
+                    onClicked: if (webView.url != instUrl) { webView.url = instUrl; whichSelected = 0; }
                 }
             }
 
@@ -104,3 +107,9 @@ Rectangle {
         url: vkUrl
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/
