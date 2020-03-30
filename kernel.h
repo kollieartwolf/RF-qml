@@ -9,6 +9,7 @@
 #include <QDateTime>
 
 #include "fetcher.h"
+#include "radioplayer.h"
 
 class Kernel : public QObject {
   Q_OBJECT
@@ -18,11 +19,13 @@ class Kernel : public QObject {
   Q_PROPERTY(bool initLoaded READ initLoaded WRITE setInitLoaded NOTIFY initLoadedChanged)
   Q_PROPERTY(QString login READ login WRITE setLogin)
   Q_PROPERTY(QString pass READ pass WRITE setPass)
+  Q_PROPERTY(bool radioState READ radioState WRITE setRadioState)
  public:
   explicit Kernel(QObject *parent = nullptr);
 
   QString login() { return m_login; }
   QString pass() { return m_pass; }
+  bool radioState() { return m_radioState; }
   bool signedIn() { return m_signedIn; }
   bool signInError() { return m_signInError; }
   bool initLoaded() { return m_initLoaded; }
@@ -31,6 +34,7 @@ class Kernel : public QObject {
   void setSignInError(const bool &signInError);
   void setLogin(const QString &login);
   void setPass(const QString &pass);
+  void setRadioState(const bool &radioState);
   void setInitLoaded(const bool &initLoaded);
   void setDates(const QString &dates);
   void checkServer(QNetworkReply *pData);
@@ -38,6 +42,7 @@ class Kernel : public QObject {
   Q_INVOKABLE QString getString(const QString &key);
   Q_INVOKABLE QString getProfileData(const QString &key);
   Q_INVOKABLE void sign();
+
   void fetchProfile(QNetworkReply *pData);
 
  signals:
@@ -51,10 +56,12 @@ class Kernel : public QObject {
   bool m_signedIn = false;
   bool m_signInError = false;
   bool m_initLoaded = false;
+  bool m_radioState = false;
   QString m_dates = "";
   QString m_login = "";
   QString m_pass = "";
   Fetcher *m_fetcher;
+  RadioPlayer *m_radioplayer;
   QSettings *m_settings;
   QJsonDocument m_keyValues;
   QJsonDocument m_profile;

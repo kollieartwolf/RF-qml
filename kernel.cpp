@@ -3,6 +3,7 @@
 Kernel::Kernel(QObject *parent) : QObject(parent) {
   // При запуске
   m_settings = new QSettings("RM", "RF-qml", this);
+  m_radioplayer = new RadioPlayer(this);
   m_fetcher = new Fetcher(this);
   connect(m_fetcher, &Fetcher::finished, this, &Kernel::checkServer);
   m_fetcher->fetch("http://markcda.pythonanywhere.com/reloadAll");
@@ -28,6 +29,12 @@ void Kernel::setLogin(const QString &login) {
 void Kernel::setPass(const QString &pass) {
   if (pass == m_pass) return;
   m_pass = pass;
+}
+
+void Kernel::setRadioState(const bool &radioState) {
+  if (radioState == m_radioState) return;
+  m_radioState = radioState;
+  m_radioplayer->setEnabled(m_radioState);
 }
 
 void Kernel::setInitLoaded(const bool &initLoaded) {
@@ -94,8 +101,12 @@ void Kernel::sign() {
 void Kernel::fetchProfile(QNetworkReply *pData) {
   disconnect(m_fetcher, &Fetcher::finished, this, &Kernel::fetchProfile);
   m_profile = QJsonDocument::fromJson(pData->readAll());
-  if (m_profile.isEmpty()) return;
+  if (m_profile.isEmpty()) {
+    setSignInError(true);
+    return;
+  }
   m_settings->setValue("profileData", m_profile.toJson());
   m_settings->setValue("loggedIn", true);
+  setSignInError(false);
   setSignedIn(true);
 }

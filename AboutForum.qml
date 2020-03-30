@@ -37,6 +37,7 @@ Rectangle {
 
             Text {
                 id: name
+                font.family: fontR.name
                 color: "#ffffff"
                 text: kernel.getString("about")
                 wrapMode: Text.WordWrap

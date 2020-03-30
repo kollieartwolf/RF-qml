@@ -63,7 +63,7 @@ Rectangle {
             Text {
                 id: nameElement
                 color: "#ffffff"
-                text: kernel.name
+                text: kernel.getProfileData("name")
                 wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 font.pointSize: 16
@@ -72,7 +72,7 @@ Rectangle {
             Text {
                 id: typeElement
                 color: "#ffffff"
-                text: kernel.type
+                text: kernel.getProfileData("description")
                 wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 font.weight: Font.Bold
@@ -82,7 +82,7 @@ Rectangle {
             Text {
                 id: ageElement
                 color: "#ffffff"
-                text: "Возраст: " + kernel.age
+                text: "Возраст: " + kernel.getProfileData("age")
                 wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 Layout.rightMargin: 20
@@ -94,7 +94,7 @@ Rectangle {
             Text {
                 id: worksWithElement
                 color: "#ffffff"
-                text: "Направление деятельности: " + kernel.worksWith
+                text: "Направление деятельности: " + kernel.getProfileData("worksWith")
                 wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 Layout.fillWidth: true
@@ -106,7 +106,7 @@ Rectangle {
             Text {
                 id: cityElement
                 color: "#ffffff"
-                text: "Город: " + kernel.city
+                text: "Город: " + kernel.getProfileData("city")
                 wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 Layout.rightMargin: 20
@@ -118,7 +118,7 @@ Rectangle {
             Text {
                 id: uniElement
                 color: "#ffffff"
-                text: "ВУЗ: " + kernel.uni
+                text: "ВУЗ: " + kernel.getProfileData("uni")
                 wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 Layout.fillWidth: true
@@ -129,9 +129,3 @@ Rectangle {
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:9;anchors_height:71.33333333333333;anchors_width:71.33333333333333}
-}
-##^##*/

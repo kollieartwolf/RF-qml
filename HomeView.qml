@@ -20,7 +20,7 @@ Image {
 
         RFCircleButton {
             icon.source: "arts/icons/megaphone.svg"
-            text: qsTr("РАДИО СОК")
+            text: qsTr("RADIOHEART")
         }
 
         RFCircleButton {
@@ -36,6 +36,7 @@ Image {
         RFCircleButton {
             icon.source: "arts/icons/rules.svg"
             text: qsTr("ПРАВИЛА")
+            onClicked: stack.push(rules)
         }
 
         RFCircleButton {

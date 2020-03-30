@@ -61,4 +61,9 @@ ApplicationWindow {
         id: map
         Map {}
     }
+
+    Component {
+        id: rules
+        Rules {}
+    }
 }

@@ -1,4 +1,4 @@
-QT += qml quick svg xml
+QT += qml quick svg xml multimedia
 
 CONFIG += c++11 resources_big
 
@@ -16,7 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     fetcher.cpp \
     kernel.cpp \
-    main.cpp
+    main.cpp \
+    radioplayer.cpp
 
 RESOURCES += qml.qrc \
     resources.qrc
@@ -60,4 +61,5 @@ DISTFILES += \
 
 HEADERS += \
     fetcher.h \
-    kernel.h
+    kernel.h \
+    radioplayer.h

@@ -15,5 +15,6 @@
         <file>RFAnimation.qml</file>
         <file>Map.qml</file>
         <file>Radio.qml</file>
+        <file>Rules.qml</file>
     </qresource>
 </RCC>

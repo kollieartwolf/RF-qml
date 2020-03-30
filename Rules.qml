@@ -1,11 +1,11 @@
-import QtQuick 2.0
+import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.14
 
 Rectangle {
     id: rect
 
-    onHeightChanged: if (height > 0) headerText = "#КАРТА"
+    onHeightChanged: if (height > 0) headerText = "#ПРАВИЛА"
 
     FontLoader { id: fontR; source: "arts/fonts/Rubik-Regular.ttf" }
 
@@ -29,33 +29,25 @@ Rectangle {
 
             Image {
                 id: image
-                source: "arts/images/map.png"
+                source: "arts/images/ts.png"
                 fillMode: Image.PreserveAspectFit
                 enabled: false
                 Layout.fillWidth: parent
-                Layout.margins: 20
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             }
 
             Text {
                 id: name
                 font.family: fontR.name
                 color: "#ffffff"
-                text: kernel.getString("map")
+                text: kernel.getString("rules")
                 wrapMode: Text.WordWrap
-                Layout.rightMargin: 20
-                Layout.leftMargin: 20
-                font.pointSize: 16
+                font.pointSize: 12
                 horizontalAlignment: Text.AlignLeft
                 Layout.fillWidth: true
+                Layout.leftMargin: 20
+                Layout.rightMargin: 20
                 y: image.y + image.height + 20
             }
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
-##^##*/
