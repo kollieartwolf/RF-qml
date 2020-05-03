@@ -1,26 +1,30 @@
 #ifndef KERNEL_H
 #define KERNEL_H
 
+#include <QCryptographicHash>
+#include <QDateTime>
 #include <QDebug>
-#include <QObject>
-#include <QSettings>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QDateTime>
+#include <QObject>
+#include <QSettings>
 
 #include "fetcher.h"
 #include "radioplayer.h"
 
 class Kernel : public QObject {
   Q_OBJECT
-  Q_PROPERTY(bool signedIn READ signedIn WRITE setSignedIn NOTIFY signedInChanged)
-  Q_PROPERTY(bool signInError READ signInError WRITE setSignInError NOTIFY signInErrorChanged)
+  Q_PROPERTY(
+      bool signedIn READ signedIn WRITE setSignedIn NOTIFY signedInChanged)
+  Q_PROPERTY(bool signInError READ signInError WRITE setSignInError NOTIFY
+                 signInErrorChanged)
   Q_PROPERTY(QString dates READ dates WRITE setDates)
-  Q_PROPERTY(bool initLoaded READ initLoaded WRITE setInitLoaded NOTIFY initLoadedChanged)
+  Q_PROPERTY(bool initLoaded READ initLoaded WRITE setInitLoaded NOTIFY
+                 initLoadedChanged)
   Q_PROPERTY(QString login READ login WRITE setLogin)
   Q_PROPERTY(QString pass READ pass WRITE setPass)
   Q_PROPERTY(bool radioState READ radioState WRITE setRadioState)
- public:
+public:
   explicit Kernel(QObject *parent = nullptr);
 
   QString login() { return m_login; }
@@ -45,14 +49,14 @@ class Kernel : public QObject {
 
   void fetchProfile(QNetworkReply *pData);
 
- signals:
+signals:
   void loginChanged();
   void passChanged();
   void initLoadedChanged();
   void signedInChanged();
   void signInErrorChanged();
 
- private:
+private:
   bool m_signedIn = false;
   bool m_signInError = false;
   bool m_initLoaded = false;
@@ -67,4 +71,4 @@ class Kernel : public QObject {
   QJsonDocument m_profile;
 };
 
-#endif  // KERNEL_H
+#endif // KERNEL_H

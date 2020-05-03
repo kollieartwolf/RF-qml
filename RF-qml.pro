@@ -1,4 +1,4 @@
-QT += qml quick svg xml multimedia webview
+QT += qml quick svg xml multimedia #webview
 
 CONFIG += c++11 resources_big
 

@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtWebView 1.1
+// import QtWebView 1.1
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.12
 
@@ -41,11 +41,11 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     font.pointSize: 12
                 }
-                MouseArea {
-                    id: vkma
-                    anchors.fill: parent
-                    onClicked: if (webView.url != vkUrl) { webView.url = vkUrl; whichSelected = 0; }
-                }
+//                MouseArea {
+//                    id: vkma
+//                    anchors.fill: parent
+//                    onClicked: if (webView.url != vkUrl) { webView.url = vkUrl; whichSelected = 0; }
+//                }
             }
 
             Item {
@@ -64,11 +64,11 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     font.pointSize: 12
                 }
-                MouseArea {
-                    id: fbma
-                    anchors.fill: parent
-                    onClicked: if (webView.url != fbUrl) { webView.url = fbUrl; whichSelected = 1; }
-                }
+//                MouseArea {
+//                    id: fbma
+//                    anchors.fill: parent
+//                    onClicked: if (webView.url != fbUrl) { webView.url = fbUrl; whichSelected = 1; }
+//                }
             }
 
             Item {
@@ -87,22 +87,22 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     font.pointSize: 12
                 }
-                MouseArea {
-                    id: ima
-                    anchors.fill: parent
-                    onClicked: if (webView.url != instUrl) { webView.url = instUrl; whichSelected = 2; }
-                }
+//                MouseArea {
+//                    id: ima
+//                    anchors.fill: parent
+//                    onClicked: if (webView.url != instUrl) { webView.url = instUrl; whichSelected = 2; }
+//                }
             }
 
         }
     }
 
-    WebView {
-        id: webView
-        x: 0
-        y: socialSelector.y + socialSelector.height + 1
-        width: rect.width
-        height: rect.height - socialSelector.height
-        url: vkUrl
-    }
+//    WebView {
+//        id: webView
+//        x: 0
+//        y: socialSelector.y + socialSelector.height + 1
+//        width: rect.width
+//        height: rect.height - socialSelector.height
+//        url: vkUrl
+//    }
 }

@@ -9,3 +9,7 @@ Fetcher::Fetcher(QObject *parent) : QObject(parent)
 void Fetcher::fetch(const QString &address) {
   m_manager->get(QNetworkRequest(QUrl(address)));
 }
+
+void Fetcher::post(QNetworkRequest request, QHttpMultiPart *data) {
+  m_manager->post(request, data);
+}
