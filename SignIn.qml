@@ -6,7 +6,6 @@ Rectangle {
     id: rect
 
     onHeightChanged: if (height > 0) headerText = "#ПРОФИЛЬ"
-    // onDestroyed: kernel.signInError = false
 
     FontLoader { id: fontR; source: "arts/fonts/Rubik-Regular.ttf" }
 
